@@ -1,0 +1,27 @@
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        
+        Map<String, List<Integer>> students = new HashMap<>();
+        
+        students.put("Dheena", Arrays.asList(10,20,50,60,70,80));
+        students.put("Arun", Arrays.asList(10,20,50,60,70,80));
+        students.put("Deebak", Arrays.asList(10,20,50,60,70,80));
+        students.put("Vinu", Arrays.asList(10,20,50,60,70,80));
+        students.put("Vichu", Arrays.asList(10,20,50,60,70,80));
+        
+        Map<String, Integer> totalMarks = new HashMap<>();
+        
+        for (Map.Entry<String, List<Integer>> entry : students.entrySet()) {
+            
+            int sum = entry.getValue()
+                           .stream()
+                           .reduce(0, (a, b) -> a + b);
+                           
+            totalMarks.put(entry.getKey(), sum);
+        }
+        
+        System.out.println(totalMarks);
+    }
+}
