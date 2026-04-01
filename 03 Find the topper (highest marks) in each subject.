@@ -1,0 +1,44 @@
+import java.util.*;
+
+class Student {
+    String name;
+    Map<String, Integer> marks; // subject -> marks
+
+    Student(String name, Map<String, Integer> marks) {
+        this.name = name;
+        this.marks = marks;
+    }
+}
+
+public class SubjectTopper {
+    public static void main(String[] args) {
+        // Sample data
+        List<Student> students = new ArrayList<>();
+
+        students.add(new Student("Alice", Map.of("Math", 95, "Physics", 88, "Chemistry", 90)));
+        students.add(new Student("Bob", Map.of("Math", 85, "Physics", 92, "Chemistry", 91)));
+        students.add(new Student("Charlie", Map.of("Math", 97, "Physics", 85, "Chemistry", 89)));
+
+        // Map to store topper info for each subject
+        Map<String, String> toppers = new HashMap<>();
+        Map<String, Integer> topMarks = new HashMap<>();
+
+        for (Student s : students) {
+            for (Map.Entry<String, Integer> entry : s.marks.entrySet()) {
+                String subject = entry.getKey();
+                int mark = entry.getValue();
+
+                if (!topMarks.containsKey(subject) || mark > topMarks.get(subject)) {
+                    topMarks.put(subject, mark);
+                    toppers.put(subject, s.name);
+                }
+            }
+        }
+
+        // Print toppers
+        System.out.println("Topper in each subject:");
+        for (String subject : toppers.keySet()) {
+            System.out.println(subject + " -> " + toppers.get(subject) + " (" + topMarks.get(subject) + ")");
+        }
+    }
+}
