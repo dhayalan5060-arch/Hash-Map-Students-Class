@@ -4,7 +4,7 @@ class Main {
         
     Map<String,Map<String,Integer>> Student = new LinkedHashMap<>();
     
-    Student.put("Dheena",Map.of("Maths",90,"Science",99,"CS",89,"Physics",98));
+    Student.put("Dheena",Map.of("Maths",90,"Science",99,"CS",89,"Physics",98));        // Map.of --> It created an Immutable Map
     Student.put("Saran",Map.of("Maths",70,"Science",99,"CS",89,"Physics",98));
     Student.put("Vichu",Map.of("Maths",100,"Science",99,"CS",89,"Physics",98));
     Student.put("Mallu",Map.of("Maths",50,"Science",99,"CS",89,"Physics",98));
