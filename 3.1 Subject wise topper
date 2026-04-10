@@ -1,0 +1,27 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+    
+    Map<String,Map<String,Integer>> Student = new HashMap<>();
+    
+    Student.put("Dheena",Map.of("Maths",50,"Science",90,"Physics",80,"English",99));
+    Student.put("Parthi",Map.of("Maths",90,"Science",90,"Physics",80,"English",99));
+    Student.put("Jhon",Map.of("Maths",30,"Science",90,"Physics",80,"English",99));
+    Student.put("Arun",Map.of("Maths",50,"Science",20,"Physics",80,"English",10));
+    
+    Map<String,String> Topper = new LinkedHashMap<>();
+    
+    for(Map.Entry<String,Map<String,Integer>> entry : Student.entrySet())
+    {
+    String max = entry.getValue().entrySet().stream()
+                    .max(Map.Entry.comparingByValue())
+                    .get()
+                    .getKey();
+                     
+                     
+        Topper.put(entry.getKey(),max);            
+    
+    }
+    System.out.println(Topper);
+    }
+}
