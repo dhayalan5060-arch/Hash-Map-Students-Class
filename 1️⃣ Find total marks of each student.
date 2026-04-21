@@ -18,6 +18,10 @@ class Main {
             int sum = entry.getValue()
                            .stream()
                            .reduce(0, (a, b) -> a + b);
+
+// int sum = entry.getValue().stream()
+              .mapToInt(Integer::intValue)
+              .sum();
                            
             totalMarks.put(entry.getKey(), sum);
         }
