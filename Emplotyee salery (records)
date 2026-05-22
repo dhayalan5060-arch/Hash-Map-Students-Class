@@ -29,5 +29,6 @@ class Main {
                 .collect(Collectors.toList());
 
         updatedEmp.forEach(System.out::println);
+// System.out.println(updatedemp);                    --> We can use this too.
     }
 }
