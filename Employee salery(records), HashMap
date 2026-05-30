@@ -1,0 +1,33 @@
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Main {
+
+    record Employee(String name, String department, Integer id, Double salary) {}
+
+    public static void main(String[] args) {
+
+        List<Employee> employee = Arrays.asList(
+                new Employee("Dheena", "IT", 1, 900000.00),
+                new Employee("Arun", "BPO", 2, 45000.00),
+                new Employee("Santa", "HR", 3, 49000.00),
+                new Employee("Madhu", "Finance", 4, 52000.00)
+        );
+
+        List<Employee> updatedemp = employee.stream()
+                .map(x -> {
+                    if (x.salary() < 50000) {
+                        return new Employee(
+                                x.name(),
+                                x.department(),
+                                x.id(),
+                                x.salary() + 50000
+                        );
+                    }
+                    return x;
+                })
+                .collect(Collectors.toList());
+
+        System.out.println(updatedemp);
+    }
+}
